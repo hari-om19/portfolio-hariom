@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Five Sample Scraping Cards</title>
+    <style>
+        body { background-color: #051622; color: white; font-family: sans-serif; padding: 50px; text-align: center; }
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; max-width: 1000px; margin: 0 auto; }
+        .card { background: rgba(17, 46, 66, 0.7); border-radius: 15px; padding: 25px; text-align: left; border: 1px solid #1a3c5a; }
+        h2 { font-size: 20px; margin-bottom: 10px; }
+        p { font-size: 13px; color: #cbd5e1; margin-bottom: 20px; }
+        .btn { background: #00abf0; color: #051622; padding: 8px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 13px; }
+    </style>
+</head>
+<body>
+    <h1 style="margin-bottom: 40px;">Five sample scraping cards</h1>
+    <div class="grid">
+        <div class="card">
+            <h2>Good Reads</h2>
+            <p>Perfect for collecting book information, reviews, and ratings.</p>
+            <a href="{{ url_for('goodreads') }}" class="btn">View Project</a>
+        </div>
+        <div class="card">
+            <h2>Sandbox</h2>
+            <p>Useful for testing scraping logic on safe sample data.</p>
+            <a href="{{ url_for('sandbox') }}" class="btn">View Project</a>
+        </div>
+        <div class="card">
+            <h2>Amazon</h2>
+            <p>Extract product names, prices, reviews, and descriptions.</p>
+            <a href="{{ url_for('amazon') }}" class="btn">View Project</a>
+        </div>
+        <div class="card">
+            <h2>Flipkart</h2>
+            <p>Gather marketplace content and compare product offers.</p>
+            <a href="{{ url_for('flipkart') }}" class="btn">View Project</a>
+        </div>
+        <div class="card">
+            <h2>News Sites</h2>
+            <p>Monitor latest articles and headlines from online publications.</p>
+            <a href="{{ url_for('news') }}" class="btn">View Project</a>
+        </div>
+    </div>
+</body>
+</html>

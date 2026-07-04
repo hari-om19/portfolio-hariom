@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LinkedIn Scraped Job Board</title>
+    <style>
+        body { background-color: #051622; color: white; font-family: sans-serif; padding: 40px; }
+        .table-container { background: rgba(17, 46, 66, 0.5); border-radius: 15px; padding: 20px; border: 1px solid #1a3c5a; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th { text-align: left; color: #00abf0; padding: 12px; border-bottom: 1px solid #1a3c5a; text-transform: uppercase; }
+        td { padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 14px; }
+    </style>
+</head>
+<body>
+    <h1>LinkedIn Asynchronous Job Postings</h1>
+    <div class="table-container">
+        <table>
+            <thead><tr><th>Job Token ID</th><th>Position Title</th><th>Company Name</th><th>Location Field</th><th>Work Type</th></tr></thead>
+            <tbody>
+                <tr><td>#LN-201</td><td>Junior Python Developer (Flask Core)</td><td>Inficore Soft Solutions</td><td>New Delhi, IN</td><td>Full-Time</td></tr>
+                <tr><td>#LN-202</td><td>Backend Engineer Associate</td><td>Tech System Labs</td><td>Remote (India)</td><td>Full-Time</td></tr>
+                <tr><td>#LN-203</td><td>Web Automation Specialist</td><td>Data Harvester Corp</td><td>Gurugram, IN</td><td>Contractual</td></tr>
+                <tr><td>#LN-204</td><td>Data Analyst Intern</td><td>Metric Matrix Hub</td><td>Bengaluru, IN</td><td>Internship</td></tr>
+                <tr><td>#LN-205</td><td>Full Stack Web Developer (Java/Python)</td><td>Enterprise Software Group</td><td>Noida, IN</td><td>Full-Time</td></tr>
+                <tr><td>#LN-206</td><td>Software Engineering Trainee</td><td>Core Logic Networks</td><td>Hyderabad, IN</td><td>Full-Time</td></tr>
+                <tr><td>#LN-207</td><td>Database Admin (SQLite / PostgreSQL)</td><td>Relational Systems</td><td>Pune, IN</td><td>Remote</td></tr>
+                <tr><td>#LN-208</td><td>DevOps Automation Engineer</td><td>Cloud Gateway Inc</td><td>Chandigarh, IN</td><td>Full-Time</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <br><a href="{{ url_for('dynamic_scraping') }}" style="color:#00abf0; text-decoration:none;">← Back to Grid</a>
+</body>
+</html>

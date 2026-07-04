@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Major Project Blueprint Architecture</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Major Project Neon Purple Accent Theme Styles */
+        .sample-section-title {
+            margin: 40px 0 20px 0;
+            font-size: 1.8rem;
+            text-align: left;
+            background: linear-gradient(135deg, #ffffff, #a855f7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .samples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+        .sample-card {
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: left;
+            backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .sample-card:hover {
+            border-color: rgba(168, 85, 247, 0.4);
+            transform: translateY(-4px);
+            background: rgba(30, 41, 59, 0.6);
+            box-shadow: 0 4px 20px rgba(168, 85, 247, 0.15);
+        }
+        .sample-card h5 {
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .sample-card h5 i {
+            color: #a855f7;
+        }
+        .sample-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .sample-btn {
+            color: #a855f7;
+            background: none;
+            border: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            padding: 0;
+            transition: color 0.2s;
+        }
+        .sample-btn:hover {
+            color: #ffffff;
+        }
+
+        /* Enterprise Architecture Log Terminal Box */
+        .console-panel {
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(168, 85, 247, 0.35);
+            border-radius: 20px;
+            padding: 24px;
+            text-align: left;
+            backdrop-filter: blur(16px);
+            margin-bottom: 35px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+            display: none;
+            animation: fadeIn 0.4s ease-out;
+        }
+        .console-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+            padding-bottom: 12px;
+            margin-bottom: 16px;
+        }
+        .console-title {
+            color: #ffffff;
+            font-size: 1.05rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .console-title i {
+            color: #a855f7;
+        }
+        .console-body {
+            font-family: 'Fira Code', 'Courier New', Courier, monospace;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            line-height: 1.6;
+            max-height: 250px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        .log-line { margin: 5px 0; }
+        .log-success { color: #2ec866; font-weight: 600; }
+        .log-info { color: #00abf0; }
+        .log-warn { color: #f59e0b; }
+        .log-purple { color: #c084fc; }
+    </style>
+</head>
+<body>
+    <div class="container" style="padding: 40px 0;">
+        
+        <div class="major-project-section" style="animation: fadeIn 0.6s ease-out; border-color: rgba(168, 85, 247, 0.2); margin-top: 0;">
+            <div class="project-header">
+                <h2><i class="fa-solid fa-cubes" style="color: #a855f7;"></i> Upcoming Major Project</h2>
+                <p>An advanced engineering architecture focused on scalable automation and data intelligence.</p>
+            </div>
+            
+            <div class="project-details-grid">
+                <div class="detail-card major-card">
+                    <h4><i class="fa-solid fa-layer-group"></i> Expected Architecture</h4>
+                    <p>Advanced Backend Frameworks, Relational/NoSQL Databases, and Distributed Scraping Pipelines.</p>
+                </div>
+                <div class="detail-card major-card">
+                    <h4><i class="fa-solid fa-rocket"></i> Core Objective</h4>
+                    <p>Implementing multi-threaded core modules, handling dynamic asynchronous rendering, and system optimization.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="architectureVisualizer" class="console-panel">
+            <div class="console-header">
+                <div class="console-title">
+                    <i class="fa-solid fa-network-wired"></i> 
+                    <span id="activeBlueprintName">System Stream Engine</span>
+                </div>
+                <span style="font-size: 0.75rem; color: rgba(168, 85, 247, 0.7); text-transform: uppercase; letter-spacing: 0.05em;">Cluster: Online</span>
+            </div>
+            <div id="blueprintStream" class="console-body">
+                </div>
+        </div>
+
+        <h3 class="sample-section-title"><i class="fa-solid fa-folder-tree"></i> Major Architecture Samples</h3>
+        
+        <div class="samples-grid">
+            <div class="sample-card">
+                <div>
+                    <h5><i class="fa-solid fa-database"></i> Distributed ETL Pipeline</h5>
+                    <p>A multi-threaded engine configured to extract, transform, and map high-volume dataset streams.</p>
+                </div>
+                <button onclick="triggerBlueprint('Distributed ETL Pipeline')" class="sample-btn">View Blueprints <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+
+            <div class="sample-card">
+                <div>
+                    <h5><i class="fa-solid fa-user-shield"></i> Enterprise Auth Broker</h5>
+                    <p>Centralized authorization subprograms validating local session tokens and structural rules.</p>
+                </div>
+                <button onclick="triggerBlueprint('Enterprise Auth Broker')" class="sample-btn">View Blueprints <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+
+            <div class="sample-card">
+                <div>
+                    <h5><i class="fa-solid fa-chart-line"></i> Analytics Matrix Hub</h5>
+                    <p>Asynchronous logging cluster processing performance variables into analytical chart grids.</p>
+                </div>
+                <button onclick="triggerBlueprint('Analytics Matrix Hub')" class="sample-btn">View Blueprints <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+
+            <div class="sample-card">
+                <div>
+                    <h5><i class="fa-solid fa-terminal"></i> Multi-Thread Scraper</h5>
+                    <p>Advanced cluster handling dynamic JS execution with concurrent scheduling loops.</p>
+                </div>
+                <button onclick="triggerBlueprint('Multi-Thread Scraper')" class="sample-btn">View Blueprints <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+
+            <div class="sample-card">
+                <div>
+                    <h5><i class="fa-solid fa-gears"></i> Central API Gateway</h5>
+                    <p>Unified endpoint router optimizing subprogram calls with dynamic proxy load distribution.</p>
+                </div>
+                <button onclick="triggerBlueprint('Central API Gateway')" class="sample-btn">View Blueprints <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="{{ url_for('home') }}" class="btn btn-secondary">
+                <i class="fa-solid fa-arrow-left"></i> Back to Home
+            </a>
+        </div>
+
+    </div>
+
+    <script>
+        function triggerBlueprint(sampleName) {
+            const visualizerBox = document.getElementById('architectureVisualizer');
+            const streamBody = document.getElementById('blueprintStream');
+            const blueprintTitle = document.getElementById('activeBlueprintName');
+            
+            // Activate workspace container view
+            visualizerBox.style.display = 'block';
+            blueprintTitle.innerText = sampleName + " Pipeline Log";
+            streamBody.innerHTML = ""; // clean tracking logs
+            
+            let structuralPayload = "";
+            if(sampleName.includes("ETL Pipeline")) {
+                structuralPayload = `[<span class="log-success">SUCCESS</span>] Extraction loop parsed 5,000 document elements into structural SQLite schemas cleanly.`;
+            } else if(sampleName.includes("Auth Broker")) {
+                structuralPayload = `[<span class="log-success">SUCCESS</span>] Local authentication subprogram token checked and validated via security override scripts.`;
+            } else if(sampleName.includes("Scraper")) {
+                structuralPayload = `[<span class="log-success">SUCCESS</span>] Dynamic Selenium viewport execution thread initialized for background data loops.`;
+            } else {
+                structuralPayload = `[<span class="log-success">SUCCESS</span>] Architecture cluster parameters validated. Endpoints operational.`;
+            }
+
+            const executeSequence = [
+                `<span class="log-purple">[LAUNCH]</span> Initializing advanced backend worker thread logic for ${sampleName}...`,
+                `<span class="log-info">[INFO]</span> Mapping connection channels to local multi-threaded loop schemas.`,
+                `<span class="log-info">[INFO]</span> Compiling modular variable primitives and checking structural environment locks...`,
+                `<span class="log-warn">[WARN]</span> Resolving concurrent routing limits. Rotating endpoint proxies...`,
+                structuralPayload,
+                `<span class="log-purple">[READY] Architecture blueprint validation complete. System pipeline stable.</span>`
+            ];
+
+            // Render text matrix blocks sequentially
+            executeSequence.forEach((line, key) => {
+                setTimeout(() => {
+                    const rowDiv = document.createElement('div');
+                    rowDiv.className = 'log-line';
+                    rowDiv.innerHTML = line;
+                    streamBody.appendChild(rowDiv);
+                    streamBody.scrollTop = streamBody.scrollHeight; // Auto adjustment
+                }, key * 350);
+            });
+        }
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Integration Cards</title>
+    <style>
+        body { background-color: #051622; color: white; font-family: sans-serif; padding: 50px; text-align: center; }
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; max-width: 1000px; margin: 0 auto; }
+        .card { background: rgba(17, 46, 66, 0.7); border-radius: 15px; padding: 25px; text-align: left; border: 1px solid #1a3c5a; }
+        h2 { font-size: 20px; margin-bottom: 10px; }
+        p { font-size: 13px; color: #cbd5e1; margin-bottom: 20px; }
+        .btn { background: #00abf0; color: #051622; padding: 8px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 13px; }
+    </style>
+</head>
+<body>
+    <h1 style="margin-bottom: 40px;">API Structural Endpoint Sample Cards</h1>
+    <div class="grid">
+        <div class="card">
+            <h2>Weather Metrics</h2>
+            <p>Fetches real-time localized atmospheric climate parameters via JSON requests.</p>
+            <a href="{{ url_for('api_weather') }}" class="btn">View Project</a>
+        </div>
+        <div class="card"><h2>Crypto Prices</h2><p>Direct stream from Binance gateway API.</p><a href="#" class="btn">View</a></div>
+        <div class="card"><h2>Geo Mapping</h2><p>Fetch lat/long arrays dynamically.</p><a href="#" class="btn">View</a></div>
+        <div class="card"><h2>User Directory</h2><p>Parse structural backend employee json mock.</p><a href="#" class="btn">View</a></div>
+        <div class="card"><h2>Product Inventory</h2><p>Fetch direct server catalog stocks.</p><a href="#" class="btn">View</a></div>
+    </div>
+    <br><br><a href="{{ url_for('index') }}" style="color:#00abf0; text-decoration:none;">← Main Dashboard</a>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flipkart Products</title>
+    <style>
+        body { background-color: #051622; color: white; font-family: sans-serif; padding: 40px; }
+        .table-container { background: rgba(17, 46, 66, 0.5); border-radius: 15px; padding: 20px; border: 1px solid #1a3c5a; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th { text-align: left; color: #00abf0; padding: 15px; border-bottom: 1px solid #1a3c5a; font-size: 14px; text-transform: uppercase; }
+        td { padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 14px; }
+    </style>
+</head>
+<body>
+    <h1>Flipkart Smart Marketplace Feed</h1>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr><th>Item Code</th><th>Product Brand & Model</th><th>Deal Price</th><th>Discount Schema</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>#FK-M102</td><td>Smart Fitness Smartwatch AMOLED Display</td><td>₹1,799</td><td>64% OFF Super Deal</td></tr>
+                <tr><td>#FK-P994</td><td>Type-C Fast Charger Adapter 65W GaN</td><td>₹1,199</td><td>35% OFF Limited Stock</td></tr>
+                <tr><td>#FK-W331</td><td>Bluetooth Waterproof Sports Earbuds</td><td>₹1,449</td><td>50% OFF Festive Price</td></tr>
+                <tr><td>#FK-B552</td><td>Trimmer and Grooming Kit Pro Series</td><td>₹999</td><td>40% OFF Special Bundle</td></tr>
+                <tr><td>#FK-A711</td><td>Noise Cancelling TWS Bluetooth Pods</td><td>₹2,299</td><td>45% OFF Top Brand</td></tr>
+                <tr><td>#FK-K092</td><td>Metallic Body Powerbank 20000mAh</td><td>₹1,699</td><td>32% OFF Verified Plus</td></tr>
+                <tr><td>#FK-J410</td><td>SuperBass Wired In-Ear Headset</td><td>₹399</td><td>60% OFF Budget Pick</td></tr>
+                <tr><td>#FK-L883</td><td>Smart LED Desk Lamp with Touch Controls</td><td>₹1,350</td><td>25% OFF Home Deal</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <br><a href="{{ url_for('static_scraping') }}" style="color: #00abf0; text-decoration: none;">← Back</a>
+</body>
+</html>

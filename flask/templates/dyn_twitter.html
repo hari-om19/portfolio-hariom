@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Twitter Trends Data</title>
+    <style>
+        body { background-color: #051622; color: white; font-family: sans-serif; padding: 40px; }
+        .table-container { background: rgba(17, 46, 66, 0.5); border-radius: 15px; padding: 20px; border: 1px solid #1a3c5a; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th { text-align: left; color: #00abf0; padding: 12px; border-bottom: 1px solid #1a3c5a; text-transform: uppercase; }
+        td { padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 14px; }
+    </style>
+</head>
+<body>
+    <h1>Twitter Trending Matrix Log</h1>
+    <div class="table-container">
+        <table>
+            <thead><tr><th>Rank</th><th>Hashtag / Topic</th><th>Volume Logs</th><th>Primary Category</th><th>System Sentiment</th></tr></thead>
+            <tbody>
+                <tr><td>1</td><td>#Python2026</td><td>142K Tweets</td><td>Technology</td><td style="color:#10b981">Highly Positive</td></tr>
+                <tr><td>2</td><td>#WebAutomation</td><td>98K Tweets</td><td>Software</td><td style="color:#10b981">Positive</td></tr>
+                <tr><td>3</td><td>#FlaskDashboard</td><td>76K Tweets</td><td>Open Source</td><td style="color:#10b981">Neutral</td></tr>
+                <tr><td>4</td><td>#BeautifulSoup4</td><td>54K Tweets</td><td>Web Scraping</td><td style="color:#10b981">Positive</td></tr>
+                <tr><td>5</td><td>#ComputerScience Engineering</td><td>120K Tweets</td><td>Education</td><td style="color:#10b981">Highly Positive</td></tr>
+                <tr><td>6</td><td>#CyberSecurityAlert</td><td>110K Tweets</td><td>Global Net</td><td style="color:#ef4444">Negative Check</td></tr>
+                <tr><td>7</td><td>#CloudServerDeployment</td><td>45K Tweets</td><td>Infrastructure</td><td style="color:#10b981">Positive</td></tr>
+                <tr><td>8</td><td>#DataStructuresJava</td><td>88K Tweets</td><td>Academic Logic</td><td style="color:#10b981">Highly Positive</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <br><a href="{{ url_for('dynamic_scraping') }}" style="color:#00abf0; text-decoration:none;">← Back to Grid</a>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Scraping Cards</title>
+    <style>
+        body { background-color: #051622; color: white; font-family: sans-serif; padding: 50px; text-align: center; }
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; max-width: 1000px; margin: 0 auto; }
+        .card { background: rgba(17, 46, 66, 0.7); border-radius: 15px; padding: 25px; text-align: left; border: 1px solid #1a3c5a; }
+        h2 { font-size: 20px; margin-bottom: 10px; }
+        p { font-size: 13px; color: #cbd5e1; margin-bottom: 20px; }
+        .btn { display: inline-block; background: #00abf0; color: #051622; padding: 8px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 13px; text-align: center; }
+    </style>
+</head>
+<body>
+    <h1 style="margin-bottom: 40px;">Dynamic JS Engines Sample Cards</h1>
+    <div class="grid">
+        <div class="card">
+            <h2>IMDB Movies</h2>
+            <p>Scrapes dynamically loaded movie ratings and charts via Selenium rendering.</p>
+            <a href="{{ url_for('dynamic_imdb') }}" class="btn">View Project</a>
+        </div>
+        <div class="card">
+            <h2>YouTube Data</h2>
+            <p>Extract live counts and metric feeds using scrolling viewports.</p>
+            <a href="{{ url_for('dynamic_youtube') }}" class="btn">View Project</a>
+        </div>
+        <div class="card">
+            <h2>Twitter Feed</h2>
+            <p>Fetch trending tweet structures and user engagement metrics securely.</p>
+            <a href="{{ url_for('dynamic_twitter') }}" class="btn">View Project</a>
+        </div>
+        <div class="card">
+            <h2>LinkedIn Jobs</h2>
+            <p>Parse async continuous job loops and structural company arrays.</p>
+            <a href="{{ url_for('dynamic_linkedin') }}" class="btn">View Project</a>
+        </div>
+        <div class="card">
+            <h2>Stock Streams</h2>
+            <p>Track rapid active price changes and live transaction tick logs.</p>
+            <a href="{{ url_for('dynamic_stocks') }}" class="btn">View Project</a>
+        </div>
+    </div>
+    <br><br><a href="{{ url_for('index') }}" style="color:#00abf0; text-decoration:none;">← Main Dashboard</a>
+</body>
+</html>

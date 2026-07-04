@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Scraping Modules</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* API Scraping Neon Amber/Orange Theme Accent */
+        .sample-section-title {
+            margin: 40px 0 20px 0;
+            font-size: 1.8rem;
+            text-align: left;
+            background: linear-gradient(135deg, #ffffff, #f59e0b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .samples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+        .sample-card {
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: left;
+            backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .sample-card:hover {
+            border-color: rgba(245, 158, 11, 0.4);
+            transform: translateY(-4px);
+            background: rgba(30, 41, 59, 0.6);
+            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.1);
+        }
+        .sample-card h5 {
+            font-size: 1.15rem;
+            color: #ffffff;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .sample-card h5 i {
+            color: #f59e0b;
+        }
+        .sample-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 16px;
+        }
+        .sample-link {
+            color: #f59e0b;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s;
+        }
+        .sample-link:hover {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="padding: 40px 0;">
+        
+        <div class="mini-project-section" style="animation: fadeIn 0.6s ease-out; border-color: rgba(245, 158, 11, 0.2);">
+            <div class="project-header">
+                <h2><i class="fa-solid fa-gears" style="color: #f59e0b;"></i> Reverse Engineered API Engine</h2>
+                <p>An advanced endpoint extraction engine configured to bypass UI layers and fetch clean, structured JSON payloads directly.</p>
+            </div>
+            
+            <div class="project-details-grid">
+                <div class="detail-card">
+                    <h4><i class="fa-solid fa-network-wired"></i> Core Protocol</h4>
+                    <p>REST API Request Parsing, JSON Payload Processing, Bearer Token Validation</p>
+                </div>
+                <div class="detail-card">
+                    <h4><i class="fa-solid fa-shield-halved"></i> Interception Layer</h4>
+                    <p>Custom HTTP Headers, Query Parameter mapping, Dynamic Session cookies.</p>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="sample-section-title"><i class="fa-solid fa-code"></i> Endpoint Extraction Modules</h3>
+        
+        <div class="samples-grid">
+            <div class="sample-card">
+                <div>
+                    <h5><i class="fa-solid fa-brackets-curly"></i> Hidden JSON Interceptor</h5>
+                    <p>Sniffs network traffic requests to locate internal XHR endpoints, pulling structured object fields directly.</p>
+                </div>
+                <a href="#" class="sample-link">Query Endpoint <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="sample-card">
+                <div>
+                    <h5><i class="fa-solid fa-key"></i> Authenticated Token Client</h5>
+                    <p>Passes authorization credentials dynamically to intercept structural data behind secure gateway walls.</p>
+                </div>
+                <a href="#" class="sample-link">Query Endpoint <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="sample-card">
+                <div>
+                    <h5><i class="fa-solid fa-arrows-rotate"></i> Paginated Offset Harvester</h5>
+                    <p>Loops sequentially through numeric offset parameters to pull entire database datasets in multi-record batches.</p>
+                </div>
+                <a href="#" class="sample-link">Query Endpoint <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="sample-card">
+                <div>
+                    <h5><i class="fa-solid fa-filter"></i> Dynamic Query Parameter Mapper</h5>
+                    <p>Modifies active request strings on the fly to receive filtered subset responses based on local rules.</p>
+                </div>
+                <a href="#" class="sample-link">Query Endpoint <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="sample-card">
+                <div>
+                    <h5><i class="fa-solid fa-list-check"></i> Bulk JSON Response Parser</h5>
+                    <p>A transformation engine flattening complex nested structures into clean relational matrix tables.</p>
+                </div>
+                <a href="#" class="sample-link">Query Endpoint <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="{{ url_for('home') }}" class="btn btn-secondary">
+                <i class="fa-solid fa-arrow-left"></i> Back to Home
+            </a>
+        </div>
+
+    </div>
+</body>
+</html>

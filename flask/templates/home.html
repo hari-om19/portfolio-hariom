@@ -1,0 +1,766 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Advanced System Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Core Futuristic Dark Palette Variables */
+        :root {
+            --bg-main: #081b29;
+            --bg-card: #112e42;
+            --border-color: rgba(0, 171, 240, 0.15);
+            --neon-cyan: #00abf0;
+            --neon-pink: #b829ffff;
+            --text-light: #ffffff;
+            --text-muted: #cbd5e1;
+            --neon-green: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
+
+        /* Fixed Navigation Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 10%;
+            background: rgba(8, 27, 41, 0.85);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            border-bottom: 1px solid rgba(0, 171, 240, 0.1);
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            color: var(--text-light);
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .logo span { color: var(--neon-cyan); }
+
+        nav a {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 35px;
+            transition: .3s;
+        }
+        nav a:hover, nav a.active {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        /* Section Layout Common */
+        section {
+            min-height: 100vh;
+            padding: 8rem 10% 2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        /* ==================== HOME SECTION ==================== */
+        .home {
+            justify-content: space-between;
+            gap: 50px;
+        }
+        .home-content {
+            max-width: 600px;
+        }
+        .home-content h3 {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        .home-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin: 5px 0;
+        }
+        .home-content .text-animate {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 5px rgba(0,171,240,0.5);
+            margin-bottom: 15px;
+        }
+        .home-content p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        /* Image Glow Ring Components */
+        .image-container {
+            position: relative;
+            width: 320px;
+            height: 320px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .glow-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 4px solid transparent;
+            background: linear-gradient(var(--bg-main), var(--bg-main)) padding-box,
+                        linear-gradient(135deg, var(--neon-cyan), var(--neon-pink)) border-box;
+            box-shadow: 0 0 30px rgba(0, 171, 240, 0.3), 0 0 30px rgba(184, 41, 255, 0.3);
+        }
+        .profile-img-box {
+            width: 92%;
+            height: 92%;
+            border-radius: 50%;
+            overflow: hidden;
+            z-index: 1;
+            background: #112e42;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .profile-img-box i {
+            font-size: 6rem;
+            color: rgba(255,255,255,0.15);
+        }
+
+        /* Buttons & Controls */
+        .btn-box {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            background: var(--neon-cyan);
+            border-radius: 40px;
+            font-size: 1rem;
+            color: var(--bg-main);
+            font-weight: 600;
+            text-decoration: none;
+            letter-spacing: 1px;
+            box-shadow: 0 0 15px var(--neon-cyan);
+            transition: .5s;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-box:hover {
+            box-shadow: none;
+            background: transparent;
+            color: var(--neon-cyan);
+            border: 2px solid var(--neon-cyan);
+        }
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            box-shadow: none;
+            margin-left: 15px;
+        }
+        .btn-secondary:hover {
+            background: var(--neon-cyan);
+            color: var(--bg-main);
+            box-shadow: 0 0 15px var(--neon-cyan);
+        }
+
+        .social-sci { margin-top: 25px; }
+        .social-sci a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: 2px solid var(--neon-cyan);
+            border-radius: 50%;
+            font-size: 20px;
+            color: var(--neon-cyan);
+            text-decoration: none;
+            margin-right: 15px;
+            transition: .5s;
+        }
+        .social-sci a:hover {
+            background: var(--neon-cyan);
+            color: var(--bg-main);
+            box-shadow: 0 0 15px var(--neon-cyan);
+        }
+
+        /* ==================== ABOUT SECTION ==================== */
+        .about {
+            background: var(--bg-card);
+            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .heading {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            width: 100%;
+        }
+        .heading span { color: var(--neon-cyan); }
+
+        .about-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            width: 100%;
+        }
+        .about-content h3 {
+            font-size: 2rem;
+            color: var(--neon-cyan);
+            margin-bottom: 15px;
+        }
+        .about-content p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+
+        /* ==================== WORKSPACE & PROJECTS SECTION ==================== */
+        .workspace {
+            flex-direction: column;
+            justify-content: center;
+            background: var(--bg-main);
+        }
+        
+        .hidden-workspace {
+            display: none;
+            width: 100%;
+            margin-top: 30px;
+            animation: fadeIn 0.5s ease-out;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            width: 100%;
+        }
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: left;
+            transition: .4s;
+        }
+        .card:hover {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 20px rgba(0, 171, 240, 0.15);
+            transform: translateY(-5px);
+        }
+        .card h3 {
+            font-size: 1.4rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 10px;
+        }
+        .card h3 i { color: var(--neon-cyan); }
+        .card ul { list-style: none; }
+        .card ul li { margin-bottom: 15px; }
+        .card ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: .2s;
+        }
+        .card ul li a:hover {
+            color: var(--neon-cyan);
+            padding-left: 6px;
+        }
+
+        /* ==================== 1. SYSTEM ARCHITECTURE TIMELINE ==================== */
+        .architecture-flow {
+            background: var(--bg-card);
+            flex-direction: column;
+            justify-content: center;
+        }
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 100%;
+            max-width: 1000px;
+            margin: 40px auto 0 auto;
+            position: relative;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 5%;
+            width: 90%;
+            height: 2px;
+            background: rgba(0, 171, 240, 0.2);
+            z-index: 1;
+        }
+        .timeline-step {
+            width: 22%;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        .timeline-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--bg-main);
+            border: 2px solid var(--neon-cyan);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px auto;
+            color: var(--neon-cyan);
+            box-shadow: 0 0 10px rgba(0, 171, 240, 0.2);
+            font-size: 1.2rem;
+        }
+        .timeline-step:hover .timeline-icon {
+            background: var(--neon-cyan);
+            color: var(--bg-main);
+            box-shadow: 0 0 15px var(--neon-cyan);
+        }
+        .timeline-step h4 { font-size: 1.1rem; margin-bottom: 8px; color: #fff; }
+        .timeline-step p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; }
+
+        /* ==================== 2. DATABASE CONFIGURATION SCHEMA ==================== */
+        .db-schema {
+            background: var(--bg-main);
+            flex-direction: column;
+            justify-content: center;
+        }
+        .schema-table {
+            width: 100%;
+            max-width: 900px;
+            border-collapse: collapse;
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            margin: 20px auto;
+        }
+        .schema-table th {
+            background: rgba(0, 171, 240, 0.1);
+            color: var(--neon-cyan);
+            text-align: left;
+            padding: 16px;
+            font-weight: 600;
+            border-bottom: 2px solid var(--border-color);
+        }
+        .schema-table td {
+            padding: 14px 16px;
+            color: var(--text-muted);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.9rem;
+        }
+        .schema-table tr:hover {
+            background: rgba(255,255,255,0.02);
+        }
+        .db-badge {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--neon-green);
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            font-family: monospace;
+        }
+
+        /* ==================== 3. LIVE API TESTING CONSOLE ==================== */
+        .api-gateway {
+            background: var(--bg-card);
+            flex-direction: column;
+            justify-content: center;
+        }
+        .api-console-box {
+            background: var(--bg-main);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 25px;
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .api-input-group {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .api-method {
+            background: rgba(0, 171, 240, 0.1);
+            border: 1px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .api-input {
+            flex: 1;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 0 15px;
+            color: #fff;
+            font-size: 0.95rem;
+            outline: none;
+        }
+        .api-input:focus { border-color: var(--neon-cyan); }
+        .api-terminal-out {
+            background: #050f17;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 8px;
+            padding: 15px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            min-height: 120px;
+            max-height: 200px;
+            overflow-y: auto;
+            text-align: left;
+        }
+
+        /* Skills Styles Component */
+        .skills {
+            background: var(--bg-main);
+            flex-direction: column;
+            justify-content: center;
+        }
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto 50px auto;
+        }
+        .skill-tag {
+            background: rgba(8, 27, 41, 0.6);
+            border: 1px solid rgba(0, 171, 240, 0.2);
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: .3s;
+        }
+        .skill-tag:hover {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 15px rgba(0, 171, 240, 0.3);
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">Hari<span>Om.</span></a>
+        <nav>
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#workspace">Workspace</a>
+            <a href="#architecture">Flow</a>
+            <a href="#database">Database</a>
+            <a href="#gateway">API Gateway</a>
+        </nav>
+    </header>
+
+    <section class="home" id="home">
+        <div class="home-content">
+            <h3>Hello, It's Me</h3>
+            <h1>Hari Om</h1>
+            <div class="text-animate">And I'm a Web Developer</div>
+            <p>Pursuing B.Tech in Computer Science and Engineering. Specializing in creating interactive full-stack architectures, structural web scraper engines, and dynamic user-centric frameworks.</p>
+            
+            <div class="main-options">
+                <a href="{{ url_for('portfolio') }}" class="btn-box">
+                    <i class="fa-solid fa-user-tie"></i> View Portfolio
+                </a>
+                <a href="#workspace" class="btn-box btn-secondary">
+                    <i class="fa-solid fa-folder-open"></i> View Projects
+                </a>
+            </div>
+
+            <div class="social-sci">
+                <a href="#"><i class="fa-brands fa-github"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <div class="glow-ring"></div>
+            <div class="profile-img-box">
+                <i class="fa-solid fa-user"></i>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <h2 class="heading">About <span>Me</span></h2>
+        <div class="about-wrapper">
+            <div class="image-container">
+                <div class="glow-ring"></div>
+                <div class="profile-img-box">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+            </div>
+            <div class="about-content">
+                <h3>Full Stack Developer!</h3>
+                <p>I am a passionate Computer Science engineering student (4th Semester) at Jai Parkash Mukand Institute of Engineering and Technology. My engineering foundation lies in optimizing backend algorithms while deploying immersive web designs.</p>
+                <p>I focus heavily on modular script systems, relational dataset parsing, and real-time execution flows. I strive to make web interaction smooth, reactive, and architecturally resilient.</p>
+                <a href="#workspace" class="btn-box">Explore Development Workspace</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="workspace" id="workspace">
+        <h2 class="heading">Development <span>Workspace</span></h2>
+        
+        <p style="text-align: center; color: var(--text-muted); max-width: 600px; margin: -2rem auto 3rem auto; line-height: 1.6;">
+            Access custom full-stack software pipelines, active project scripts, and specialized data extraction engines.
+        </p>
+
+        <div style="text-align: center; margin-bottom: 40px;">
+            <button id="learnMoreBtn" class="btn-box">
+                <i class="fa-solid fa-circle-info"></i> Initialize Console Workspace <i class="fa-solid fa-chevron-down toggle-icon" style="margin-left: 5px; transition: 0.3s;"></i>
+            </button>
+        </div>
+
+        <div id="learningContent" class="hidden-workspace">
+            <div class="grid-container">
+                <div class="card">
+                    <h3><i class="fa-solid fa-diagram-project"></i> Projects</h3>
+                    <ul>
+                        <li><a href="{{ url_for('mini_project') }}"><i class="fa-solid fa-cube"></i> Mini Project</a></li>
+                        <li><a href="{{ url_for('major_project') }}"><i class="fa-solid fa-cubes"></i> Major Project</a></li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3><i class="fa-solid fa-spider"></i> Web Scraping</h3>
+                    <ul>
+                        <li><a href="{{ url_for('static_scraping') }}"><i class="fa-solid fa-file-code"></i> Static Scraping</a></li>
+                        <li><a href="{{ url_for('dynamic_scraping') }}"><i class="fa-solid fa-bolt"></i> Dynamic Scraping</a></li>
+                        <li><a href="{{ url_for('api_scraping') }}"><i class="fa-solid fa-gears"></i> API Scraping</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="architecture-flow" id="architecture">
+        <h2 class="heading">Execution <span>Architecture Flow</span></h2>
+        <p style="text-align: center; color: var(--text-muted); margin: -2rem 0 2rem 0;">Asynchronous pipeline map tracing core request transmission cycles.</p>
+        
+        <div class="timeline">
+            <div class="timeline-step">
+                <div class="timeline-icon"><i class="fa-solid fa-browser"></i>1</div>
+                <h4>Client Trigger</h4>
+                <p>User initializes execution loop from UI view matrix grid.</p>
+            </div>
+            <div class="timeline-step">
+                <div class="timeline-icon"><i class="fa-solid fa-gears"></i>2</div>
+                <h4>Flask Broker</h4>
+                <p>Dynamic endpoint mapping directs execution via app.py.</p>
+            </div>
+            <div class="timeline-step">
+                <div class="timeline-icon"><i class="fa-solid fa-spider"></i>3</div>
+                <h4>Engine Core</h4>
+                <p>BeautifulSoup4/REST loop handles structural data harvest strings.</p>
+            </div>
+            <div class="timeline-step">
+                <div class="timeline-icon"><i class="fa-solid fa-database"></i>4</div>
+                <h4>Storage Map</h4>
+                <p>Relational storage engine structures serialized objects into local matrices.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="db-schema" id="database">
+        <h2 class="heading">Relational <span>Database Schema</span></h2>
+        <p style="text-align: center; color: var(--text-muted); margin: -2rem 0 2rem 0;">Structural column mappings used by core backend data persistence layers.</p>
+        
+        <table class="schema-table">
+            <thead>
+                <tr>
+                    <th>Column Name</th>
+                    <th>Data Type</th>
+                    <th>Key Type</th>
+                    <th>Structural Context Definition</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><b style="color: #fff;">item_id</b></td>
+                    <td>INTEGER</td>
+                    <td><span class="db-badge" style="color:#ef4444; background:rgba(239,68,68,0.1);">PRIMARY KEY</span></td>
+                    <td>Auto-incrementing unique identifier tracking table array elements.</td>
+                </tr>
+                <tr>
+                    <td><b style="color: #fff;">source_target_url</b></td>
+                    <td>VARCHAR(512)</td>
+                    <td><span class="db-badge">DATA FIELD</span></td>
+                    <td>Stores the raw string address parsed during request scraping cycles.</td>
+                </tr>
+                <tr>
+                    <td><b style="color: #fff;">extracted_payload</b></td>
+                    <td>TEXT (JSON)</td>
+                    <td><span class="db-badge">SERIALIZED</span></td>
+                    <td>Holds multi-variable product parameters, titles, and item pricing objects.</td>
+                </tr>
+                <tr>
+                    <td><b style="color: #fff;">timestamp_log</b></td>
+                    <td>DATETIME</td>
+                    <td><span class="db-badge" style="color:var(--neon-cyan); background:rgba(0,171,240,0.1);">TIMESTAMP</span></td>
+                    <td>Automatic structural log capturing exact moment data hit storage cache.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="api-gateway" id="gateway">
+        <h2 class="heading">Mock <span>API Gateway Router</span></h2>
+        <p style="text-align: center; color: var(--text-muted); margin: -2rem 0 2rem 0;">Simulate endpoint response brokers using text signature validation controls.</p>
+        
+        <div class="api-console-box">
+            <div class="api-input-group">
+                <div class="api-method">GET</div>
+                <input type="text" class="api-input" id="apiEndpointInput" value="https://api.workspace.local/v1/scraper/test_harvest">
+                <button onclick="simulateApiCall()" class="btn-box" style="box-shadow:none; border-radius:8px;">Send Query</button>
+            </div>
+            <div class="api-terminal-out" id="apiTerminalOutput">
+                // System idle. Enter mock endpoint string target and initialize loop...
+            </div>
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <h2 class="heading">Technical <span>Competencies</span></h2>
+        
+        <div class="skills-grid">
+            <div class="skill-tag"><i class="fa-brands fa-java" style="color: #f89820;"></i> Java Core</div>
+            <div class="skill-tag"><i class="fa-brands fa-python" style="color: #3776ab;"></i> Python 3</div>
+            <div class="skill-tag"><i class="fa-solid fa-terminal" style="color: #4af626;"></i> Data Structures</div>
+            <div class="skill-tag"><i class="fa-solid fa-cubes" style="color: #a855f7;"></i> OOPs Logic</div>
+            <div class="skill-tag"><i class="fa-solid fa-server" style="color: #00abf0;"></i> Flask Engine</div>
+            <div class="skill-tag"><i class="fa-brands fa-html5" style="color: #e34c26;"></i> HTML5 / CSS3</div>
+        </div>
+
+        <div style="display: flex; justify-content: center; gap: 50px; flex-wrap: wrap; margin-top: 20px; width: 100%;">
+            <div style="text-align: center;">
+                <div style="font-size: 2.5rem; font-weight: 800; color: var(--neon-cyan); text-shadow: 0 0 10px rgba(0,171,240,0.3);">02</div>
+                <div style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 5px;">Core Frameworks</div>
+            </div>
+            <div style="text-align: center; border-left: 1px solid rgba(255,255,255,0.08); border-right: 1px solid rgba(255,255,255,0.08); padding: 0 50px;">
+                <div style="font-size: 2.5rem; font-weight: 800; color: #ffffff;">15+</div>
+                <div style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 5px;">Sample Architectures</div>
+            </div>
+            <div style="text-align: center;">
+                <div style="font-size: 2.5rem; font-weight: 800; color: var(--neon-pink); text-shadow: 0 0 10px rgba(184,41,255,0.3);">100%</div>
+                <div style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 5px;">Dynamic Routing</div>
+            </div>
+        </div>
+
+        <footer style="margin-top: 100px; font-size: 0.85rem; color: rgba(255,255,255,0.2); border-top: 1px solid rgba(255,255,255,0.05); padding-top: 25px; width: 100%; text-align: center;">
+            Computer Science & Engineering Mini Project Submission
+        </footer>
+    </section>
+
+    <script>
+        // Smooth Active Link Tracking Engine
+        let sections = document.querySelectorAll('section');
+        let navLinks = document.querySelectorAll('header nav a');
+
+        window.onscroll = () => {
+            sections.forEach(sec => {
+                let top = window.scrollY;
+                let offset = sec.offsetTop - 150;
+                let height = sec.offsetHeight;
+                let id = sec.getAttribute('id');
+
+                if(top >= offset && top < offset + height) {
+                    navLinks.forEach(links => {
+                        links.classList.remove('active');
+                        document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
+                    });
+                }
+            });
+        };
+
+        // Workspace Dropdown Toggle Controller
+        const toggleBtn = document.getElementById('learnMoreBtn');
+        const contentPanel = document.getElementById('learningContent');
+        const toggleIcon = toggleBtn.querySelector('.toggle-icon');
+
+        toggleBtn.addEventListener('click', () => {
+            if (contentPanel.style.display === 'block') {
+                contentPanel.style.display = 'none';
+                toggleIcon.style.transform = 'rotate(0deg)';
+            } else {
+                contentPanel.style.display = 'block';
+                toggleIcon.style.transform = 'rotate(180deg)';
+            }
+        });
+
+        // Live Mock API Gateway Terminal Engine Simulation
+        function simulateApiCall() {
+            const terminal = document.getElementById('apiTerminalOutput');
+            const targetUrl = document.getElementById('apiEndpointInput').value;
+            
+            terminal.innerHTML = `<span style="color:var(--neon-cyan)">[PENDING] Sending dynamic GET validation payload to destination endpoint broker...</span>`;
+            
+            setTimeout(() => {
+                terminal.innerHTML = `
+<span style="color:var(--neon-green)">HTTP/1.1 200 OK</span>
+<span style="color:rgba(255,255,255,0.4)">Content-Type: application/json | Server: Flask WSGI Cache Broker</span>
+<span style="color:rgba(255,255,255,0.4)">X-Validation-Token: AUTH_LOCAL_OVERRIDE_VERIFIED</span>
+
+{
+  "status": "success",
+  "endpoint_target": "${targetUrl}",
+  "parsed_dataset_count": 15,
+  "execution_runtime_ms": 142,
+  "payload_array": [
+    {"index": 0, "status": "active", "origin": "BeautifulSoup_Tree_Harvester"}
+  ]
+}`;
+            }, 800);
+        }
+    </script>
+</body>
+</html>

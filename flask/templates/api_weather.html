@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Weather Feed</title>
+    <style>
+        body { background-color: #051622; color: white; font-family: sans-serif; padding: 40px; }
+        .table-container { background: rgba(17, 46, 66, 0.5); border-radius: 15px; padding: 20px; border: 1px solid #1a3c5a; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th { text-align: left; color: #00abf0; padding: 15px; border-bottom: 1px solid #1a3c5a; text-transform: uppercase; }
+        td { padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    </style>
+</head>
+<body>
+    <h1>API Operational Data: Weather Station</h1>
+    <div class="table-container">
+        <table>
+            <thead><tr><th>Target Station City</th><th>Temperature</th><th>Humidity Rating</th><th>API Connection Status</th></tr></thead>
+            <tbody>
+                <tr><td>New Delhi, IN</td><td>34°C</td><td>62%</td><td><span style="color:#10b981; font-weight:bold;">200 OK</span></td></tr>
+                <tr><td>Yamunanagar, IN</td><td>32°C</td><td>68%</td><td><span style="color:#10b981; font-weight:bold;">200 OK</span></td></tr>
+                <tr><td>London, UK</td><td>18°C</td><td>80%</td><td><span style="color:#10b981; font-weight:bold;">200 OK</span></td></tr>
+            </tbody>
+        </table>
+    </div>
+    <br><a href="{{ url_for('api_integration') }}" style="color:#00abf0; text-decoration:none;">← Back to Grid</a>
+</body>
+</html>

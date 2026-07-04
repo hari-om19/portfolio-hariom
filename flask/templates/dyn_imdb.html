@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IMDB Top Dynamic Charts</title>
+    <style>
+        body { background-color: #051622; color: white; font-family: sans-serif; padding: 40px; }
+        .table-container { background: rgba(17, 46, 66, 0.5); border-radius: 15px; padding: 20px; border: 1px solid #1a3c5a; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th { text-align: left; color: #00abf0; padding: 12px; border-bottom: 1px solid #1a3c5a; text-transform: uppercase; }
+        td { padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 14px; }
+    </style>
+</head>
+<body>
+    <h1>IMDB Top Dynamic Charts (Selenium Output)</h1>
+    <div class="table-container">
+        <table>
+            <thead><tr><th>Rank</th><th>Movie Name</th><th>Year</th><th>Rating</th><th>Global Votes</th></tr></thead>
+            <tbody>
+                <tr><td>1</td><td>The Shawshank Redemption</td><td>1994</td><td><b style="color:#10b981">9.3 / 10</b></td><td>2.8M</td></tr>
+                <tr><td>2</td><td>The Godfather</td><td>1972</td><td><b style="color:#10b981">9.2 / 10</b></td><td>1.9M</td></tr>
+                <tr><td>3</td><td>The Dark Knight</td><td>2008</td><td><b style="color:#10b981">9.0 / 10</b></td><td>2.7M</td></tr>
+                <tr><td>4</td><td>The Godfather Part II</td><td>1974</td><td><b style="color:#10b981">9.0 / 10</b></td><td>1.3M</td></tr>
+                <tr><td>5</td><td>12 Angry Men</td><td>1957</td><td><b style="color:#10b981">9.0 / 10</b></td><td>800K</td></tr>
+                <tr><td>6</td><td>Schindler's List</td><td>1993</td><td><b style="color:#10b981">8.9 / 10</b></td><td>1.4M</td></tr>
+                <tr><td>7</td><td>Pulp Fiction</td><td>1994</td><td><b style="color:#10b981">8.9 / 10</b></td><td>2.1M</td></tr>
+                <tr><td>8</td><td>Inception</td><td>2010</td><td><b style="color:#10b981">8.8 / 10</b></td><td>2.4M</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <br><a href="{{ url_for('dynamic_scraping') }}" style="color:#00abf0; text-decoration:none;">← Back to Grid</a>
+</body>
+</html>

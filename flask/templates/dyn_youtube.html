@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTube Scraped Analytics</title>
+    <style>
+        body { background-color: #051622; color: white; font-family: sans-serif; padding: 40px; }
+        .table-container { background: rgba(17, 46, 66, 0.5); border-radius: 15px; padding: 20px; border: 1px solid #1a3c5a; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th { text-align: left; color: #00abf0; padding: 12px; border-bottom: 1px solid #1a3c5a; text-transform: uppercase; }
+        td { padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 14px; }
+    </style>
+</head>
+<body>
+    <h1>YouTube Live Content Analytics</h1>
+    <div class="table-container">
+        <table>
+            <thead><tr><th>Video ID</th><th>Video Title</th><th>Channel Identity</th><th>Live Views</th><th>Likes Array</th></tr></thead>
+            <tbody>
+                <tr><td>#YT-001</td><td>Learn Python Programming in 10 Hours</td><td>Code Matrix Academy</td><td>1.5M views</td><td>95K likes</td></tr>
+                <tr><td>#YT-002</td><td>Futuristic Dark UI Design Trends 2026</td><td>Creative Pixel Lab</td><td>420K views</td><td>38K likes</td></tr>
+                <tr><td>#YT-003</td><td>How Web Scrapers Bypass Dynamic JS Blocks</td><td>Automation Devs</td><td>890K views</td><td>72K likes</td></tr>
+                <tr><td>#YT-004</td><td>Flask Framework vs Fast-API Execution</td><td>Backend Hub</td><td>210K views</td><td>18K likes</td></tr>
+                <tr><td>#YT-005</td><td>Setting up Multi-Threaded Scraping Loops</td><td>Stack Architecture</td><td>340K views</td><td>29K likes</td></tr>
+                <tr><td>#YT-006</td><td>Data Science Roadmap for Engineering</td><td>Campus Tech Feed</td><td>1.2M views</td><td>88K likes</td></tr>
+                <tr><td>#YT-007</td><td>Understanding SQLite Database Schema Mappings</td><td>ByteSized Logic</td><td>150K views</td><td>12K likes</td></tr>
+                <tr><td>#YT-008</td><td>Instagram Reels Algorithm Deep Dive</td><td>Social Growth Hub</td><td>670K views</td><td>54K likes</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <br><a href="{{ url_for('dynamic_scraping') }}" style="color:#00abf0; text-decoration:none;">← Back to Grid</a>
+</body>
+</html>

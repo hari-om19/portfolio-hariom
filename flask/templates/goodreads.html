@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Goodreads Quotes</title>
+    <style>
+        body { background-color: #051622; color: white; font-family: sans-serif; padding: 40px; }
+        .table-container { background: rgba(17, 46, 66, 0.5); border-radius: 15px; padding: 20px; border: 1px solid #1a3c5a; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th { text-align: left; color: #00abf0; padding: 15px; border-bottom: 1px solid #1a3c5a; font-size: 14px; text-transform: uppercase; }
+        td { padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 14px; vertical-align: middle; }
+        .author-img { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid #00abf0; }
+        .quote-text { font-style: italic; color: #cbd5e1; }
+        .likes { color: #00abf0; font-weight: bold; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <h1>Goodreads Quotes</h1>
+    <p style="color: #cbd5e1;">Popular motivational and literary quotes extracted cleanly from Goodreads grids.</p>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Author</th>
+                    <th>Quote</th>
+                    <th>Likes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Oscar" class="author-img"></td>
+                    <td>Oscar Wilde</td>
+                    <td class="quote-text">"Be yourself; everyone else is already taken."</td>
+                    <td class="likes">165,432 likes</td>
+                </tr>
+                <tr>
+                    <td><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Marilyn" class="author-img"></td>
+                    <td>Marilyn Monroe</td>
+                    <td class="quote-text">"I'm selfish, impatient and a little insecure. But if you can't handle me..."</td>
+                    <td class="likes">158,901 likes</td>
+                </tr>
+                <tr>
+                    <td><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Albert" class="author-img"></td>
+                    <td>Albert Einstein</td>
+                    <td class="quote-text">"Two things are infinite: the universe and human stupidity; and I'm not sure about the universe."</td>
+                    <td class="likes">142,330 likes</td>
+                </tr>
+                <tr>
+                    <td><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Frank" class="author-img"></td>
+                    <td>Frank Zappa</td>
+                    <td class="quote-text">"So many books, so little time."</td>
+                    <td class="likes">139,445 likes</td>
+                </tr>
+                <tr>
+                    <td><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus" class="author-img"></td>
+                    <td>Marcus Tullius Cicero</td>
+                    <td class="quote-text">"A room without books is like a body without a soul."</td>
+                    <td class="likes">128,110 likes</td>
+                </tr>
+                <tr>
+                    <td><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Mae" class="author-img"></td>
+                    <td>Mae West</td>
+                    <td class="quote-text">"You only live once, but if you do it right, once is enough."</td>
+                    <td class="likes">119,556 likes</td>
+                </tr>
+                <tr>
+                    <td><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Mahatma" class="author-img"></td>
+                    <td>Mahatma Gandhi</td>
+                    <td class="quote-text">"Be the change that you wish to see in the world."</td>
+                    <td class="likes">108,321 likes</td>
+                </tr>
+                <tr>
+                    <td><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Robert" class="author-img"></td>
+                    <td>Robert Frost</td>
+                    <td class="quote-text">"In three words I can sum up everything I've learned about life: it goes on."</td>
+                    <td class="likes">99,450 likes</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br><a href="{{ url_for('static_scraping') }}" style="color: #00abf0; text-decoration: none;">← Back to Projects</a>
+</body>
+</html>
