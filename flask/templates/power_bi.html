@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power BI Reports</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #061320; color: #ffffff; font-family: Arial, sans-serif; padding: 30px; }
+        .back-link { color: #00abf0; text-decoration: none; font-size: 14px; display: inline-block; margin-bottom: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px; }
+        .card { 
+            background-color: #0b2135; 
+            padding: 25px; 
+            border-radius: 8px; 
+            border-top: 4px solid #ffb900; 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 220px;
+        }
+        .card h3 { margin: 0 0 10px 0; color: #ffb900; }
+        .card p { color: #9fb3c8; font-size: 13px; line-height: 1.5; margin-bottom: 20px; }
+        
+        /* Sleek Button for PDF */
+        .pdf-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #ffb900;
+            color: #061320;
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 5px;
+            font-size: 13px;
+            font-weight: bold;
+            align-self: flex-start;
+            transition: 0.3s;
+        }
+        .pdf-btn:hover {
+            opacity: 0.9;
+            box-shadow: 0 0 12px rgba(255, 185, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <a href="/dashboard" class="back-link">← Back to Main Dashboard</a>
+    <h2>Power BI Data Metrics Analytics</h2>
+    <p style="color: #9fb3c8;">Interactive operational business dashboards processed from scrapers data streams.</p>
+
+    <div class="grid">
+        <div class="card">
+            <div>
+                <h3>Scraping Efficiency Analytics</h3>
+                <p>Monitors network latency, request-response success ratios, and server load parameters dynamically across distinct data pipelines.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div>
+                <h3>Structured Financial Insights</h3>
+                <p>Analyzes target crypto tokens and market inventory valuations utilizing statistical metrics and trend distribution charts.</p>
+            </div>
+            <a href="{{ url_for('static', filename='selling_price.pdf') }}" target="_blank" class="pdf-btn">
+                <i class="fa-solid fa-file-pdf"></i> View Selling Price
+            </a>
+        </div>
+
+        <div class="card">
+            <div>
+                <h3>Geographic Target Coverage</h3>
+                <p>Provides mapping visualizations tracking localization parameters, localized coordinates clusters, and dynamic server footprints.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
